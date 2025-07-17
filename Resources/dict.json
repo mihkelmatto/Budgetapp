@@ -1,0 +1,36 @@
+{
+    "revenue": {
+        "source": "amount",
+        "ERM": 0,
+        "Elektritakso": 0,
+        "Goworkabit": 0,
+        "kogumiskontod": 0
+
+    },
+    "permanent_expenses": {
+        "title": "cost",
+        "KÜ Alasi 32": 0,
+        "Elekter": 0,
+        "Internet": 0,
+        "III sammas": 0,
+        "Spotify": 0,
+        "Bussikaart": 0
+    },
+    "ongoing_expenses": {
+        "title": ["account", "previous balance", "additions", "budget", "used funds", "remaining balance"],
+        "toit": ["SWED", 0, 0, 0, 0, 0],
+        "meelelahutus": ["SWED+", 0, 0, 0, 0, 0],
+        "riided": ["SWED+", 0, 0, 0, 0, 0],
+        "muu": ["SWED+", 0, 0, 0, 0, 0]
+    },
+    "investable_amount": {
+        "title": ["previous balance", "additions", "budget", "used funds", "remaining balance"],
+        "kogumiskonto": [0, 0, 0, 0, 0],
+        "investeerimiskonto": [null, 0, null, null, null, null]
+    },
+    "account_balance": {
+        "SWED": 0,
+        "SWED+": 0,
+        "LHV+": 0
+    }
+}
