@@ -1,23 +1,29 @@
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout
 
-from .header import headerUI
-from .midsection import expensesUI, incomeUI, accountsUI, statisticsUI
-from .footer import footerUI
+from utils.filepath import root_directory
+
+from UI.header import headerUI
+from UI.midsection import expensesUI, incomeUI, accountsUI, statisticsUI
+from UI.footer import footerUI
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.resize(1000, 600)
+        self.setWindowTitle("Budget app")
+        self.setWindowIcon(QIcon(root_directory("Resources", "Icons", "windowicon.png")))
         self.initUI()
 
     # Create main layout of the app
     def initUI(self):
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
-        central_widget.setContentsMargins(0, 0, 0, 0)
-        central_layout = QVBoxLayout()
-        central_layout.setContentsMargins(0, 0, 0, 0)
+        widget = QWidget()
+        self.setCentralWidget(widget)
+        layout = QVBoxLayout()
+
+        widget.setContentsMargins(0, 0, 0, 0)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # define variables, objects
         header: QWidget = headerUI(self)
@@ -25,12 +31,12 @@ class MainWindow(QMainWindow):
         footer: QWidget = footerUI(self)
 
         # add to layout, layout settings
-        central_layout.addWidget(header, stretch=0)
-        central_layout.addWidget(midsection, stretch=1)
-        central_layout.addWidget(footer, stretch=0)
+        layout.addWidget(header, stretch=0)
+        layout.addWidget(midsection, stretch=1)
+        layout.addWidget(footer, stretch=0)
 
         # layout > widget, set stylesheets
-        central_widget.setLayout(central_layout)
+        widget.setLayout(layout)
         self.set_stylesheets()
 
     def set_stylesheets(self) -> None:

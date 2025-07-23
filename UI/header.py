@@ -7,7 +7,7 @@ def headerUI(self) -> QWidget:
     layout.setContentsMargins(0, 0, 0, 0)
     layout.setSpacing(0)
 
-    height = 80
+    height: int = 80
 
     # Create items
     main_title = QLabel("Reede 20. Aprill")

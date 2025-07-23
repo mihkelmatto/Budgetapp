@@ -10,13 +10,13 @@ def footerUI(self) -> QWidget:
     height = 60
 
     # create buttons
-    self.menu_kulud = QPushButton("kulud")
-    self.menu_tulud = QPushButton("tulud")
-    self.menu_kontod = QPushButton("kontod")
-    self.menu_statistika = QPushButton("statistika")
+    self.kulud_button = QPushButton("kulud")
+    self.tulud_button = QPushButton("tulud")
+    self.kontod_button = QPushButton("kontod")
+    self.statistika_button = QPushButton("statistika")
 
     # button settings
-    buttons = [self.menu_kulud, self.menu_tulud, self.menu_kontod, self.menu_statistika]
+    buttons = [self.kulud_button, self.tulud_button, self.kontod_button, self.statistika_button]
 
     for button in buttons:
         layout.addWidget(button)
