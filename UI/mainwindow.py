@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
         layout = QVBoxLayout()
 
-        widget.setContentsMargins(0, 0, 0, 0)
+        widget.setContentsMargins(10, 10, 10, 10)
         layout.setContentsMargins(0, 0, 0, 0)
 
         # define variables, objects
@@ -43,14 +43,14 @@ class MainWindow(QMainWindow):
         self.setStyleSheet("""
             /* "Global" settings */
             QMainWindow, QPushButton, QLabel{
-                background-color: hsl(0, 0%, 15%);
+                background-color: hsl(0, 0%, 16%);
                 font-family: Bahnschrift, Arial;
                 color: hsl(34, 98%, 40%);
             }            
 
             /* top settings */     
             #header, #header QLabel, #header QPushButton{
-            background-color: hsl(0, 0%, 12%);
+                background-color: hsl(0, 0%, 12%);
             }            
             #header #main_title, #header QPushButton{
                 font-size: 40px;
@@ -59,10 +59,16 @@ class MainWindow(QMainWindow):
             }
 
             /* mid settings */
-
+            #card{
+                border: 3px solid;
+            }
+            #card, #card QLabel{
+                background-color: hsl(0, 0%, 12%);
+            }
+            
             /* bot settings */
             #footer, #footer QLabel, #footer QPushButton{
-            background-color: hsl(0, 0%, 12%);
+                background-color: hsl(0, 0%, 12%);
             }
             #footer QPushButton{
                 font-size: 30px;
