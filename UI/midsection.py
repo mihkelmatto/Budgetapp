@@ -1,18 +1,24 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QHBoxLayout, QScrollArea
 
 from UI.widgets import widgets_cardbase
 
 
-def expensesUI(self) -> QWidget:
-    expenseswidget = QWidget()
-    layout = QVBoxLayout()
+def expensesUI(self) -> QScrollArea:
+    # create a scrollable area and its content widget
+    scrollarea = QScrollArea(self)
+    scrollarea.setWidgetResizable(True)
 
-    for counter in range(3):
+    expenseswidget = QWidget()
+    layout = QVBoxLayout(expenseswidget)
+
+    # add items to the scrollable area
+    for counter in range(6):
         content_placeholder = QLabel("content")
         layout.addWidget(widgets_cardbase("taun.gif", content_placeholder))
 
-    expenseswidget.setLayout(layout)
-    return expenseswidget
+    # set the content widget inside the scroll area
+    scrollarea.setWidget(expenseswidget)
+    return scrollarea
 
 def incomeUI(self) -> QWidget:
     pass

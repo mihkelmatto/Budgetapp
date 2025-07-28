@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
         layout = QVBoxLayout()
 
-        widget.setContentsMargins(10, 10, 10, 10)
+        widget.setContentsMargins(0, 0, 0, 0)
         layout.setContentsMargins(0, 0, 0, 0)
 
         # define variables, objects
@@ -41,14 +41,14 @@ class MainWindow(QMainWindow):
 
     def set_stylesheets(self) -> None:
         self.setStyleSheet("""
-            /* "Global" settings */
-            QMainWindow, QPushButton, QLabel{
+            /* Global settings */
+            QMainWindow, QPushButton, QLabel, QWidget{
                 background-color: hsl(0, 0%, 16%);
                 font-family: Bahnschrift, Arial;
                 color: hsl(34, 98%, 40%);
             }            
 
-            /* top settings */     
+            /* header settings */                 
             #header, #header QLabel, #header QPushButton{
                 background-color: hsl(0, 0%, 12%);
             }            
@@ -58,15 +58,31 @@ class MainWindow(QMainWindow):
                 font-weight: bold;
             }
 
-            /* mid settings */
+            /* midsection settings */            
             #card{
                 border: 3px solid;
+                border-radius: 10px;
             }
-            #card, #card QLabel{
+            #card, #card QLabel, #card QWidget{
                 background-color: hsl(0, 0%, 12%);
             }
-            
-            /* bot settings */
+            QScrollArea{
+                border: none;
+            }
+            QScrollBar, QScrollBar::add-page, QScrollBar::sub-page{
+                background: transparent;
+                width: 10px;
+            }
+            QScrollBar::add-line, QScrollBar::sub-line{
+                width: 0px;
+                height: 0px;
+            }
+            QScrollBar::handle{
+                border: 1px solid;
+                background: hsl(0, 0%, 8%);
+                border-radius: 5px;
+            }
+            /* footer settings */
             #footer, #footer QLabel, #footer QPushButton{
                 background-color: hsl(0, 0%, 12%);
             }
