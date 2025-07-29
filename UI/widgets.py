@@ -21,7 +21,7 @@ def widgets_cardbase(icon_filename: str, content: QWidget) -> QWidget:
         label.setPixmap(pixmap)
 
         # size formatting
-        label.setFixedSize(height, height)
+        label.setFixedSize(height - 15, height - 15)
         label.setScaledContents(True)
 
         return label
@@ -30,20 +30,22 @@ def widgets_cardbase(icon_filename: str, content: QWidget) -> QWidget:
         """Create a settings button widget with vertical layout"""
         # create widget
         widget = QWidget()
+        widget.setContentsMargins(0, 0, 5, 0)
         layout = QVBoxLayout(widget)
 
         # create items
         button = QPushButton("⋮")
-        button.setFixedSize(30, 30)
+        button.setFixedSize(20, 30)
         button.setStyleSheet("font-size: 30px; font-weight: bold;")
 
         # add to layout, size formatting
-        layout.addWidget(button, alignment=Qt.AlignTop)
+        layout.addWidget(button, alignment=Qt.AlignTop | Qt.AlignRight)
         widget.setFixedSize(50, height)
+        button.setObjectName("settingsbutton")
 
         return widget
     # Main widget setup (size variables > formatting)
-    cardheight, cardmargin = 150, 5
+    cardheight, cardmargin = 170, 5
     itemheight: int = cardheight - 2 * cardmargin
     card_widget = QWidget()
     card_layout = QHBoxLayout(card_widget)
@@ -60,5 +62,6 @@ def widgets_cardbase(icon_filename: str, content: QWidget) -> QWidget:
 
     # Set object names for stylesheets
     card_widget.setObjectName("card")
+    # card_widget.setStyleSheet("border: 3px solid;")
 
     return card_widget

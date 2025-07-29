@@ -43,9 +43,21 @@ class MainWindow(QMainWindow):
         self.setStyleSheet("""
             /* Global settings */
             QMainWindow, QPushButton, QLabel, QWidget{
-                background-color: hsl(0, 0%, 16%);
+                background-color: hsl(0, 0%, 25%);
                 font-family: Bahnschrift, Arial;
                 color: hsl(34, 98%, 40%);
+            }
+            #settingsbutton, #plusbutton{
+                color: hsl(0, 0%, 80%);
+                border-radius: 10px;                
+            }
+            #plusbutton{
+                background-color: hsl(0, 0%, 25%);
+                border-radius: 15px;
+            }
+            
+            #settingsbutton:hover, #plusbutton:hover, #footer QPushButton:hover{
+                background-color: hsl(0, 0%, 30%);
             }            
 
             /* header settings */                 
@@ -68,13 +80,21 @@ class MainWindow(QMainWindow):
 
             /* midsection settings */            
             #card{
-                border: 3px solid;
+                border: 2px solid;
                 border-radius: 10px;
             }
             #card, #card QLabel, #card QWidget{
                 background-color: hsl(0, 0%, 12%);
             }
-            
+            #expenseswidget #title{
+                font-weight: bold;
+                font-size: 30px;
+                color: hsl(34, 98%, 40%);
+            }
+            #expenseswidget #text{
+                color: hsl(0, 0%, 80%);
+                font-size: 15px;
+            }
             QScrollArea{
                 border: none;
             }
@@ -92,12 +112,14 @@ class MainWindow(QMainWindow):
                 border-radius: 5px;
             }
             QProgressBar{
-                border: 2px solid;
+                border: 1px solid hsl(0, 0%, 40%);
                 border-radius: 5px;
+                color: hsl(0, 0%, 70%);
                 background-color: hsl(0, 0%, 8%);   
                 font-size: 15px;
             }
             QProgressBar::chunk{
-                background-color: grey;
+                background-color: hsl(34, 98%, 40%, 0.9);
+                border-radius: 5px;
             }
                 """)

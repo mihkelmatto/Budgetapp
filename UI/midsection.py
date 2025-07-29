@@ -10,6 +10,7 @@ def midsectionUI(self) -> QScrollArea:
 
     midsection = QWidget()
     layout = QVBoxLayout(midsection)
+    layout.setSpacing(12)
 
     # add items to the scrollable area
     for counter in range(6):
@@ -33,17 +34,20 @@ def expenses() -> QWidget:
     expenseswidget = QWidget()
     layout = QVBoxLayout(expenseswidget)
 
-    title = QLabel("Title")
-    subtitle = QLabel("Subtitle")
+    title = QLabel("Toit")
+    subtitle = QLabel("Jooksvad kulud")
     progressbar = create_progressbar(40, 100)
-    account = QLabel("Account")
-    maxlabel = QLabel("max")
+    remaininglabel = QLabel("jääk: 60€")
+    account = QLabel("SWED")
 
-    for item in (title, subtitle, progressbar, account, maxlabel):
+    for item in (title, subtitle, progressbar, remaininglabel, account):
         layout.addWidget(item)
 
     expenseswidget.setObjectName("expenseswidget")
     title.setObjectName("title")
+    subtitle.setObjectName("text")
+    remaininglabel.setObjectName("text")
+    account.setObjectName("text")
 
     return expenseswidget
 
