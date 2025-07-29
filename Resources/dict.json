@@ -1,11 +1,10 @@
 {
-    "revenue": {
+    "income": {
         "source": "amount",
         "ERM": 0,
         "Elektritakso": 0,
         "Goworkabit": 0,
         "kogumiskontod": 0
-
     },
     "permanent_expenses": {
         "title": "cost",
