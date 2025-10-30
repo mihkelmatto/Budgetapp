@@ -13,15 +13,19 @@ def midsectionUI(self) -> QScrollArea:
     layout.setSpacing(12)
 
     # add items to the scrollable area
-    for counter in range(6):
-        content_placeholder = expenses()
-        layout.addWidget(widgets_cardbase("taun.gif", content_placeholder))
+    for counter in range(3):
+        content1 = ongoing_expenses()
+        layout.addWidget(widgets_cardbase("groceries.png", content1))
+
+    for counter in range(2):
+        content2 = permanent_expenses()
+        layout.addWidget(widgets_cardbase("router.png", content2))
 
     # set the content widget inside the scroll area
     scrollarea.setWidget(midsection)
     return scrollarea
 
-def expenses() -> QWidget:
+def ongoing_expenses() -> QWidget:
     def create_progressbar(current, max) -> QProgressBar:
         progressbar = QProgressBar()
         progressbar.setMaximum(max)
@@ -51,6 +55,36 @@ def expenses() -> QWidget:
 
     return expenseswidget
 
+def permanent_expenses():
+
+    def create_progressbar(current, max) -> QProgressBar:
+        progressbar = QProgressBar()
+        progressbar.setMaximum(max)
+        progressbar.setValue(current)
+        progressbar.setFormat(f"{current} / {max} €")
+        progressbar.setAlignment(Qt.AlignCenter)
+
+        return progressbar
+
+    expenseswidget = QWidget()
+    layout = QVBoxLayout(expenseswidget)
+
+    title = QLabel("Internet")
+    subtitle = QLabel("Püsikulud")
+    progressbar = create_progressbar(0, 100)
+    remaininglabel = QLabel("staatus: maksmata")
+    account = QLabel("SWED")
+
+    for item in (title, subtitle, progressbar, remaininglabel, account):
+        layout.addWidget(item)
+
+    expenseswidget.setObjectName("expenseswidget")
+    title.setObjectName("title")
+    subtitle.setObjectName("text")
+    remaininglabel.setObjectName("text")
+    account.setObjectName("text")
+
+    return expenseswidget
 
 
 def income(self) -> QWidget:
